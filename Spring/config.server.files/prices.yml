@@ -1,2 +1,9 @@
 server:
   port: 9002
+spring:
+  mongodb:
+    embedded:
+      version: 4.0.21
+  data:
+    mongodb:
+      port: 0

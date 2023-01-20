@@ -1,2 +1,12 @@
 server:
   port: 9001
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName:
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      dll-auto: create-drop
