@@ -116,3 +116,4 @@ fabric.properties
 **/.mvn/*
 *.cmd
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Java,Maven,Intellij
+*/mvnw
