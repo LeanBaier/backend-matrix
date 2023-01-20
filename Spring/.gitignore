@@ -113,4 +113,6 @@ fabric.properties
 .idea/Spring.iml
 .idea/libraries/*
 
+**/.mvn/*
+*.cmd
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Java,Maven,Intellij
