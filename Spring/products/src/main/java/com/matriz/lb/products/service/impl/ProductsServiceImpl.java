@@ -1,6 +1,5 @@
 package com.matriz.lb.products.service.impl;
 
-import com.matriz.lb.products.domain.request.GetProductsParams;
 import com.matriz.lb.products.domain.response.GetProductsResponse;
 import com.matriz.lb.products.domain.response.ProductDTO;
 import com.matriz.lb.products.domain.response.ProductPriceDTO;
@@ -30,9 +29,9 @@ public class ProductsServiceImpl implements ProductsService {
     }
 
     @Override
-    public GetProductsResponse getProducts(GetProductsParams params) {
+    public GetProductsResponse getProducts(Integer page, Integer quantity) {
         var sort = Sort.by("id").ascending();
-        var pageable = PageRequest.of(params.getPage() - 1, params.getQuantity(), sort);
+        var pageable = PageRequest.of(page - 1, quantity, sort);
         List<Product> products = productDAO.findAll(pageable).stream().toList();
         return GetProductsResponse.builder()
                 .products(products
@@ -53,7 +52,7 @@ public class ProductsServiceImpl implements ProductsService {
                                         .orElse(null))
                                 .build())
                         .collect(Collectors.toList()))
-                .page(params.getPage())
+                .page(page)
                 .quantity(products.size())
                 .build();
     }
