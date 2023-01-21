@@ -19,5 +19,3 @@ Actualmente utilizan las siguientes DB:
 - [Products](https://github.com/LeanBaier/backend-matrix/tree/main/Spring/products): Utiliza una base H2, la generacion de las tablas se hacen desde las entidades.
 
 El config server esta levantando los archivos de configuracion desde [aca](https://github.com/LeanBaier/backend-matrix/tree/main/Spring/config.server.files).
-
-* 
