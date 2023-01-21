@@ -61,6 +61,11 @@
 			<artifactId>mongo-java-server</artifactId>
 			<version>1.43.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.14</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
