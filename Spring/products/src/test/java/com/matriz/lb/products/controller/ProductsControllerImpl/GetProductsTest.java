@@ -18,7 +18,7 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @WebMvcTest
-public class GetProductsTest {
+public class  GetProductsTest {
 
     @Autowired
     private MockMvc mockMvc;
