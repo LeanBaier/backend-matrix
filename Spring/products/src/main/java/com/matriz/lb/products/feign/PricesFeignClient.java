@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(value = "pricesclient", url="http://localhost:9002")
+@FeignClient(value = "pricesclient", url="http://localhost:9002/v1/api")
 public interface PricesFeignClient {
 
     @PostMapping("/products/{productId}/prices")

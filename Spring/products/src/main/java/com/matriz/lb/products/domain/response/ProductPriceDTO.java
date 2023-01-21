@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Builder
 public class ProductPriceDTO implements Serializable {
 
-    private String id;
+    private String priceId;
     private String description;
     private Double price;
     private Long minQuantity;
