@@ -1,4 +1,4 @@
-package com.matriz.lb.products.domain.response;
+package com.matriz.lb.products.feign.domain.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class PriceDTO implements Serializable {
+public class CreatePriceRequest implements Serializable {
 
-    private String id;
     private String description;
     private Double price;
     private Long minQuantity;

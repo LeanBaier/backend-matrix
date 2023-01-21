@@ -3,6 +3,7 @@ package com.matriz.lb.products.service.impl;
 import com.matriz.lb.products.domain.request.GetProductsParams;
 import com.matriz.lb.products.domain.response.GetProductsResponse;
 import com.matriz.lb.products.domain.response.ProductDTO;
+import com.matriz.lb.products.domain.response.ProductPriceDTO;
 import com.matriz.lb.products.feign.PricesFeignClient;
 import com.matriz.lb.products.repository.dao.ProductDAO;
 import com.matriz.lb.products.repository.entity.Product;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,7 +39,15 @@ public class ProductsServiceImpl implements ProductsService {
                                 .id(p.getId())
                                 .name(p.getName())
                                 .description(p.getDescription())
-                                .prices(pricesFeignClient.getPricesByProductId(p.getId()))
+                                .prices(Optional.ofNullable(pricesFeignClient.getPricesByProductId(p.getId()).getPrices())
+                                        .map(l -> l.stream().map(pr -> ProductPriceDTO.builder()
+                                                        .price(pr.getPrice())
+                                                        .id(pr.getId())
+                                                        .minQuantity(pr.getMinQuantity())
+                                                        .description(pr.getDescription()).
+                                                        build())
+                                                .collect(Collectors.toList()))
+                                        .orElse(null))
                                 .build())
                         .collect(Collectors.toList()))
                 .page(params.getPage())
